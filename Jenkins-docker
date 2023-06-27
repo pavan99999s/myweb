@@ -42,13 +42,13 @@ pipeline{
             steps{
                  sh 'docker build -t pavan99999s/spring-boot-mongoo .'
                  sh 'docker build -t tomcat:${BUILD_NUMBER} .'
-                 sh 'docker run -itd --name srini36 -p 3600:8080 tomcat:${BUILD_NUMBER}'
+                 sh 'docker run -itd --name srini37 -p 3700:8080 tomcat:${BUILD_NUMBER}'
              }
          }
         stage('Push Docker Image'){
              steps{
-                  withCredentials([string(credentialsId: 'DOCKER_HUB_CREDENTIALS1', variable: 'DOCKER_HUB_CREDENTIALS1')]) {
-                      sh "docker login -u pavan99999s -p ${DOCKER_HUB_CREDENTIALS1}"
+                  withCredentials([string(credentialsId: 'DOCKER_HUB_CREDENTIALSSS', variable: 'DOCKER_HUB_CREDENTIALSSS')]) {
+                      sh "docker login -u pavan99999s -p ${DOCKER_HUB_CREDENTIALSSS}"
             }
             sh 'docker push pavan99999s/spring-boot-mongoo'
         }
